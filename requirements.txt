@@ -1,0 +1,6 @@
+pandas
+numpy
+dash
+seaborn
+plotly
+dash-bootstrap-components
