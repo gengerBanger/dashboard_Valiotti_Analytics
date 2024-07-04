@@ -8,6 +8,7 @@ import numpy as np
 import plotly.io as pio
 import plotly.graph_objects as go
 
+
 def get_data_frame():
     """
         Считывание и предобработка данных
@@ -16,12 +17,14 @@ def get_data_frame():
     df_2000_2022 = df[(df['Year_of_Release'] >= 2000) & (df['Year_of_Release'] <= 2022)]
     return df_2000_2022
 
+
 def get_amount_games(data):
     '''
     :param data: DataFrame
     :return: Колисчество строк
     '''
     return len(data)
+
 
 def get_mean_user_score(data):
     '''
@@ -34,6 +37,7 @@ def get_mean_user_score(data):
     mean = no_tbd_df['User_Score'].mean()
     return round(mean, 3)
 
+
 def get_mean_critic_score(data):
     '''
     Преобразование колонки с оценками и вычисление среднего
@@ -42,6 +46,7 @@ def get_mean_critic_score(data):
     '''
     mean = data['Critic_Score'].mean()
     return round(mean, 3)
+
 
 def numeric_func(x):
     '''
@@ -60,7 +65,7 @@ def numeric_func(x):
     else:
         return np.nan
 
-'''Создание темы для отрисоыки графиков'''
+'''Создание темы для отрисовки графиков'''
 
 solar_theme = go.layout.Template(
     layout=go.Layout(
@@ -85,7 +90,8 @@ solar_theme = go.layout.Template(
             bgcolor='#073642',
             bordercolor='#586e75'
         ),
-        colorway=['#268bd2', '#2aa198', '#859900', '#b58900', '#cb4b16', '#dc322f']
+        colorway=['#268bd2', '#2aa198', '#859900', '#b58900', '#cb4b16', '#dc322f',
+                  '#6c71c4', '#d33682', '#4e9a06', '#c4a000', '#ce5c00']
     )
 )
 
