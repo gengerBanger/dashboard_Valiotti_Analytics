@@ -20,7 +20,7 @@
 1. Клонируйте репозиторий:
 
     ```bash
-    git clone https://github.com/yourusername/game-industry-analysis.git
+    git clone ...
     cd game-industry-analysis
     ```
 
@@ -43,14 +43,14 @@
 1. Запустите приложение:
 
     ```bash
-    python main.py
+    python games_market_dash_Aleksandr_Saraikin.py
     ```
 
 2. Откройте браузер и перейдите по адресу [http://127.0.0.1:8050](http://127.0.0.1:8050), чтобы увидеть приложение.
 
 ## Структура проекта
 
-- `main.py` - основной файл приложения Dash.
+- `games_market_dash_Aleksandr_Saraikin.py` - основной файл приложения Dash.
 - `assets/` - папка с CSS-стилями для приложения.
 - `data/` - папка с исходными данными (например, `games.csv`).
 - `requirements.txt` - файл с зависимостями проекта.
