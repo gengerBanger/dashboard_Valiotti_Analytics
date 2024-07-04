@@ -210,11 +210,12 @@ def update_chart(year_range, selected_platforms, selected_genres):
                       (data['Year_of_Release'] <= year_range[1]) &
                       (data['Platform'].isin(selected_platforms)) &
                       (data['Genre'].isin(selected_genres))]
+    #Отрисовка точечного графика
     fig_scatter = px.scatter(chart_data.sort_values('User_Score'), 'User_Score', 'Critic_Score', 'Genre',
                              title='Рейтинг игроков / Рейтинг критиков',
                              labels={'User_Score': 'Рейтинг игроков', 'Critic_Score': 'Рейтинг критиков'}
                              )
-
+    #Отрисовка столбчатого графика
     chart_data['Numeric_Rating'] = chart_data['Rating'].apply(numeric_func)
     temp_df = pd.concat([chart_data['Genre'], chart_data['Rating'].apply(numeric_func)], axis=1)
     mean_rating_genres = temp_df.groupby('Genre')['Rating'].agg(['mean']).reset_index()
@@ -226,12 +227,13 @@ def update_chart(year_range, selected_platforms, selected_genres):
                                       columns='Platform',
                                       aggfunc='size',
                                       fill_value=0).reset_index()
+    # Отрисовка графика Stacked_Area
     fig_stacked_area = px.area(df_pivot, x='Year_of_Release',
                                y=df_pivot.columns[1:],
                                title='Выпуск игр по годам и платформам',
                                labels={'value': 'Количество', 'Year_of_Release': 'Год'}
                                )
-
+    #Перезаполнение таблицы
     amount_games = get_amount_games(chart_data)
     mean_user_score = get_mean_user_score(chart_data)
     mean_critic_score = get_mean_critic_score(chart_data)
